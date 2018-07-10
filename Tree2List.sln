@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree2List", "Tree2List\Tree2List.csproj", "{52306868-8CB0-4FB6-BCC1-101F64D564D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree2List.Tests", "Tree2List.Tests\Tree2List.Tests.csproj", "{DB9CB41C-1B94-4A0E-B936-15096128AA23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree2List.Models", "Tree2List.Models\Tree2List.Models.csproj", "{C8E09E19-D9B0-4EF8-A68C-1F84623349F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{52306868-8CB0-4FB6-BCC1-101F64D564D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52306868-8CB0-4FB6-BCC1-101F64D564D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52306868-8CB0-4FB6-BCC1-101F64D564D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB9CB41C-1B94-4A0E-B936-15096128AA23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB9CB41C-1B94-4A0E-B936-15096128AA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB9CB41C-1B94-4A0E-B936-15096128AA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB9CB41C-1B94-4A0E-B936-15096128AA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E09E19-D9B0-4EF8-A68C-1F84623349F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E09E19-D9B0-4EF8-A68C-1F84623349F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E09E19-D9B0-4EF8-A68C-1F84623349F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E09E19-D9B0-4EF8-A68C-1F84623349F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
