@@ -2,6 +2,7 @@
 {
     public class Node
     {
+        public Node(){}
         public Node(Node left, Node right)
         {
             Left = left;

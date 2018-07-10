@@ -17,7 +17,7 @@ namespace Tree2List.Tests
         [Fact]
         public void Test1()
         {
-            var tree = new Node(new Node(null, null), new Node(null, null));
+            var tree = new Node(new Node(), new Node());
             LinkedList<Node> l = _subject.Convert(tree);
             l.Count.Should().Be(2);
             l.First.Value.Should().Be(tree.Left);
@@ -27,7 +27,7 @@ namespace Tree2List.Tests
         [Fact]
         public void Test5()
         {
-            var tree = new Node(new Node(null, null), null);
+            var tree = new Node(new Node(), null);
             LinkedList<Node> l = _subject.Convert(tree);
             l.Count.Should().Be(1);
             l.First.Value.Should().Be(tree.Left);
@@ -36,7 +36,7 @@ namespace Tree2List.Tests
         [Fact]
         public void Test6()
         {
-            var tree = new Node(null, new Node(null, null));
+            var tree = new Node(null, new Node());
             LinkedList<Node> l = _subject.Convert(tree);
             l.Count.Should().Be(1);
             l.First.Value.Should().Be(tree.Right);
@@ -45,7 +45,7 @@ namespace Tree2List.Tests
         [Fact]
         public void Test7()
         {
-            var tree = new Node(null, new Node(new Node(null, null), null));
+            var tree = new Node(null, new Node(new Node(), null));
             LinkedList<Node> l = _subject.Convert(tree);
             l.Count.Should().Be(1);
             l.First.Value.Should().Be(tree.Right.Left);
@@ -54,7 +54,7 @@ namespace Tree2List.Tests
         [Fact]
         public void Test2()
         {
-            var tree = new Node(new Node(new Node(null, null), new Node(null, null)), new Node(new Node(null, null), new Node(null, null)));
+            var tree = new Node(new Node(new Node(), new Node()), new Node(new Node(), new Node()));
             LinkedList<Node> l = _subject.Convert(tree);
             l.Count.Should().Be(4);
             l.First.Value.Should().Be(tree.Left.Left);
@@ -66,7 +66,7 @@ namespace Tree2List.Tests
         [Fact]
         public void Test3()
         {
-            var tree = new Node(new Node(new Node(null, null), new Node(null, null)), new Node(null, null));
+            var tree = new Node(new Node(new Node(), new Node()), new Node());
             LinkedList<Node> l = _subject.Convert(tree);
             l.Count.Should().Be(3);
             l.First.Value.Should().Be(tree.Left.Left);
@@ -77,7 +77,7 @@ namespace Tree2List.Tests
         [Fact]
         public void Test4()
         {
-            var tree = new Node(new Node(new Node(null, null), new Node(null, null)), new Node(null, new Node(null, null)));
+            var tree = new Node(new Node(new Node(), new Node()), new Node(null, new Node()));
             LinkedList<Node> l = _subject.Convert(tree);
             l.Count.Should().Be(3);
             l.First.Value.Should().Be(tree.Left.Left);
