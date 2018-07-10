@@ -27,39 +27,24 @@ namespace Tree2List
                 return list;
             }
 
-            foreach (var l in Convert(left))
-            {
-                list.AddLast(l);
-            }
+            FindLeaf(left, list);
 
-            foreach (var r in Convert(right))
-            {
-                list.AddLast(r);
-            }
+            FindLeaf(right, list);
 
-            //list.AddLast(left);
-            //list.AddLast(right);
-            
             return list;
         }
 
-        private T Collect(T node)
+        private void FindLeaf(T node, LinkedList<T> list)
         {
-            var left = _leftSelector(node);
-            var right = _rightSelector(node);
-
-
-            if (left == null && right == null)
+            if (node == null)
             {
-                return node;
+                return;
             }
 
-            return Collect(left);
-        }
-
-        class N
-        {
-
+            foreach (var r in Convert(node))
+            {
+                list.AddLast(r);
+            }
         }
     }
 }
