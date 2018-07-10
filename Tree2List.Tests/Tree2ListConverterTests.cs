@@ -11,9 +11,20 @@ namespace Tree2List.Tests
 
         public Tree2ListConverterTests()
         {
-            _subject = new Tree2ListConverter<Node>(x => x.Left, x => x.Right);
+            _subject = new Tree2ListConverter<Node>(
+                x => x == null || (x.Right == null && x.Left == null),
+                x => x.Left,
+                x => x.Right);
         }
 
+        [Fact]
+        public void Test0()
+        {
+            var tree = new Node();
+            LinkedList<Node> l = _subject.Convert(tree);
+            l.Count.Should().Be(1);
+            l.First.Value.Should().Be(tree);
+        }
         [Fact]
         public void Test1()
         {
@@ -22,7 +33,7 @@ namespace Tree2List.Tests
             l.Count.Should().Be(2);
             l.First.Value.Should().Be(tree.Left);
             l.Last.Value.Should().Be(tree.Right);
-        } 
+        }
 
         [Fact]
         public void Test5()

@@ -1,50 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Tree2List
 {
-    public class Tree2ListConverter<T> where T : class
+    public class Tree2ListConverter<T>
     {
-        private readonly Func<T, T> _leftSelector;
-        private readonly Func<T, T> _rightSelector;
+        private readonly Func<T, bool> _isLeaf;
+        private readonly Func<T, T>[] _leafSelector;
 
-        public Tree2ListConverter(Func<T, T> leftSelector, Func<T, T> rightSelector)
+        public Tree2ListConverter(Func<T, bool> isLeaf, params Func<T, T>[] leafSelector)
         {
-            _leftSelector = leftSelector;
-            _rightSelector = rightSelector;
+            _isLeaf = isLeaf;
+            _leafSelector = leafSelector;
         }
 
-        public LinkedList<T> Convert(T tree)
+        public LinkedList<T> Convert(T tree) => new LinkedList<T>(FindLeafs(tree));
+
+        private IEnumerable<T> FindLeafs(T tree)
         {
-            LinkedList<T> list = new LinkedList<T>();
-            var left = _leftSelector(tree);
-            var right = _rightSelector(tree);
-
-
-            if (left == null && right == null)
+            if (tree == null)
             {
-                list.AddLast(tree);
-                return list;
+                return Array.Empty<T>();
             }
-
-            FindLeaf(left, list);
-
-            FindLeaf(right, list);
-
-            return list;
-        }
-
-        private void FindLeaf(T node, LinkedList<T> list)
-        {
-            if (node == null)
-            {
-                return;
-            }
-
-            foreach (var r in Convert(node))
-            {
-                list.AddLast(r);
-            }
+            return _leafSelector
+                .Select(propertySelector => propertySelector(tree))
+                .SelectMany(FindLeafs)
+                .Where(_isLeaf)
+                .DefaultIfEmpty(tree);
         }
     }
 }
